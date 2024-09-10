@@ -13,7 +13,7 @@ const LoyaltyScreenPage: React.FC = () => {
   return (
     <SafeAreaView style={styles.SafeAreaView}>
       <View style={styles.header}>
-        <Text style={styles.logo}>Banco de Alimentos Quito</Text>
+        <Text style={styles.logo}>Por favor valora tu experiencia</Text>
       </View>
       
       <View style={styles.starContainer}>
@@ -40,33 +40,34 @@ const LoyaltyScreenPage: React.FC = () => {
          "Necesita mejorar"}
       </Text>
 
-      {/* Comentarios */}
-      <View style={styles.feedbackContainer}>
-        <View style={styles.feedbackRow}>
-          <View style={styles.feedbackBox}>
-            <Text>El camión se demoró más de lo esperado</Text>
-          </View>
-          <View style={styles.feedbackBox}>
-            <Text>El camión se demoró más de lo esperado</Text>
-          </View>
-        </View>
-        <View style={styles.feedbackRow}>
-          <View style={styles.feedbackBox}>
-            <Text>El camión se demoró más de lo esperado</Text>
-          </View>
-          <View style={styles.feedbackBox}>
-            <Text>El camión se demoró más de lo esperado</Text>
-          </View>
-        </View>
-        <View style={styles.feedbackRow}>
-          <View style={styles.feedbackBox}>
-            <Text>El camión se demoró más de lo esperado</Text>
-          </View>
-          <View style={styles.feedbackBox}>
-            <Text>El camión se demoró más de lo esperado</Text>
-          </View>
-        </View>
-      </View>
+     {/* Comentarios */}
+<View style={styles.feedbackContainer}>
+  <View style={styles.feedbackRow}>
+    <TouchableOpacity style={styles.feedbackBox} onPress={() => console.log('Comentario 1 seleccionado')}>
+      <Text>Todo estuvo excelente</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.feedbackBox} onPress={() => console.log('Comentario 2 seleccionado')}>
+      <Text>El camión llegó un poco tarde</Text>
+    </TouchableOpacity>
+  </View>
+  <View style={styles.feedbackRow}>
+    <TouchableOpacity style={styles.feedbackBox} onPress={() => console.log('Comentario 3 seleccionado')}>
+      <Text>No existió trato cordial por parte del funcionario</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.feedbackBox} onPress={() => console.log('Comentario 4 seleccionado')}>
+      <Text>El funcionario fue irrespetuoso</Text>
+    </TouchableOpacity>
+  </View>
+  <View style={styles.feedbackRow}>
+    <TouchableOpacity style={styles.feedbackBox} onPress={() => console.log('Comentario 5 seleccionado')}>
+      <Text>El funcionario no disponia vestimenta o identificación visible</Text>
+    </TouchableOpacity>
+    <TouchableOpacity style={styles.feedbackBox} onPress={() => console.log('Comentario 6 seleccionado')}>
+      <Text>Otros... (especificar)</Text>
+    </TouchableOpacity>
+  </View>
+</View>
+
 
      
       <TouchableOpacity style={styles.submitButton}>
