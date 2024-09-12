@@ -1,58 +1,35 @@
+
+
 import React from 'react';
 import { View, StyleSheet, Text, ScrollView, useWindowDimensions, TouchableOpacity } from 'react-native';
-import Card from '../molecules/CardHomeScreen';
 
 const LoyaltyScreenPage: React.FC = () => {
-  // Obtener el tamaño actual de la pantalla
   const { width } = useWindowDimensions();
+  const buttonWidth = width * 0.4;
+  const buttonHeight = 100;
 
-  // Definir el ancho y alto de las cartas
-  const cardWidth = width * 0.4;  // Por ejemplo, 40% del ancho de la pantalla
-  const cardHeight = 200;        // Altura fija
-
-  // Array de imágenes con sus rutas
-  const icons = [
-    require('../../assets/frutas.png'),
-    require('../../assets/frutas.png'),
-    require('../../assets/frutas.png'),
-    require('../../assets/frutas.png'),
-    require('../../assets/frutas.png'),
-    require('../../assets/frutas.png'),
-    require('../../assets/frutas.png'),
-    require('../../assets/frutas.png'),
-  ];
-
-  // Array de nombres o títulos
   const titles = [
-    'Frutas',
-    'Categoría 2',
-    'Categoría 3',
-    'Categoría 4',
-    'Categoría 5',
-    'Categoría 6',
-    'Categoría 7',
-    'Categoría 8',
+    'El camión se demoró más de lo esperado',
+    'Nunca llego el camion',
+    'El operador no fue cordial',
+    'El operadore fue irrespetuoso',
+    'El camión se demoró más de lo esperado',
+    'El camión se demoró más de lo esperado',
   ];
 
   return (
     <ScrollView contentContainerStyle={styles.scrollViewContent}>
       <View style={styles.mainSection}>
-        <Text style={styles.subtitle}>
-          ¿Qué vamos a donar hoy?
-        </Text>
-        <View style={styles.cardsContainer}>
+        <Text style={styles.subtitle}>Por favor valora tu experiencia</Text>
+        
+        <View style={styles.buttonsContainer}>
           {titles.map((title, index) => (
             <TouchableOpacity
               key={index}
-              onPress={() => console.log(`${title} seleccionado`)} // Acción al presionar cada tarjeta
-              style={styles.touchableCard}
+              onPress={() => console.log(`${title} seleccionado`)}
+              style={[styles.touchableButton, { width: buttonWidth, height: buttonHeight }]}
             >
-              <Card
-                iconSource={icons[index]}
-                title={title}
-                width={cardWidth}      // Aplicar el ancho calculado
-                height={cardHeight}    // Aplicar la altura calculada
-              />
+              <Text style={styles.buttonText}>{title}</Text>
             </TouchableOpacity>
           ))}
         </View>
@@ -69,25 +46,35 @@ const styles = StyleSheet.create({
   },
   subtitle: {
     fontSize: 24,
-    color: '#000',
-    flex: 1,
-    textAlign: 'center',
-    marginTop: 25,
-    marginBottom: 10,
     fontWeight: 'bold',
+    textAlign: 'center',
+    marginVertical: 20,
+    color: '#000',
   },
   mainSection: {
     transform: [{ translateY: -10 }],
   },
-  cardsContainer: {
+  buttonsContainer: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
     padding: 10,
   },
-  touchableCard: {
-    marginBottom: 20,  // Espacio entre cada tarjeta
+  touchableButton: {
+    marginBottom: 20,
+    backgroundColor: '#d3d3d3',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20,
+  },
+  buttonText: {
+    fontSize: 16,
+    textAlign: 'center',
+    paddingHorizontal: 10,
+    color: '#000',
   },
 });
 
 export default LoyaltyScreenPage;
+
+
