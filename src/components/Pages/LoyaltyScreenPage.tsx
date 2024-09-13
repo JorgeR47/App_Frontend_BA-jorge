@@ -1,6 +1,9 @@
+/*
 import React, { useState } from 'react';
 import { View, StyleSheet, ScrollView, Text, Image, TouchableOpacity, Button } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import LoyaltyFeedbackScreen from '../FeedbackIcons/LoyaltyFeedbackScreen';
+import buttonExperienceRatingConfirmation from '../atoms/buttonExperienceRatingConfirmation';
 
 const LoyaltyScreenPage: React.FC = () => {
   const [rating, setRating] = useState(0);  // Estado para la calificación seleccionada
@@ -13,11 +16,12 @@ const LoyaltyScreenPage: React.FC = () => {
   return (
     <SafeAreaView style={styles.SafeAreaView}>
       <View style={styles.header}>
-        <Text style={styles.logo}>Por favor valora tu experiencia</Text>
+       
+        <LoyaltyFeedbackScreen />
       </View>
       
       <View style={styles.starContainer}>
-        {/* Renderiza 5 estrellas con calificación */}
+        {/* Renderiza 5 estrellas con calificación }
         {[1, 2, 3, 4, 5].map((star) => (
           <TouchableOpacity key={star} onPress={() => handleRating(star)}>
             <Image
@@ -40,38 +44,14 @@ const LoyaltyScreenPage: React.FC = () => {
          "Necesita mejorar"}
       </Text>
 
-     {/* Comentarios */}
-<View style={styles.feedbackContainer}>
-  <View style={styles.feedbackRow}>
-    <TouchableOpacity style={styles.feedbackBox} onPress={() => console.log('Comentario 1 seleccionado')}>
-      <Text>Todo estuvo excelente</Text>
-    </TouchableOpacity>
-    <TouchableOpacity style={styles.feedbackBox} onPress={() => console.log('Comentario 2 seleccionado')}>
-      <Text>El camión llegó un poco tarde</Text>
-    </TouchableOpacity>
-  </View>
-  <View style={styles.feedbackRow}>
-    <TouchableOpacity style={styles.feedbackBox} onPress={() => console.log('Comentario 3 seleccionado')}>
-      <Text>No existió trato cordial por parte del funcionario</Text>
-    </TouchableOpacity>
-    <TouchableOpacity style={styles.feedbackBox} onPress={() => console.log('Comentario 4 seleccionado')}>
-      <Text>El funcionario fue irrespetuoso</Text>
-    </TouchableOpacity>
-  </View>
-  <View style={styles.feedbackRow}>
-    <TouchableOpacity style={styles.feedbackBox} onPress={() => console.log('Comentario 5 seleccionado')}>
-      <Text>El funcionario no disponia vestimenta o identificación visible</Text>
-    </TouchableOpacity>
-    <TouchableOpacity style={styles.feedbackBox} onPress={() => console.log('Comentario 6 seleccionado')}>
-      <Text>Otros... (especificar)</Text>
-    </TouchableOpacity>
-  </View>
-</View>
+     {/* Comentarios }
+     
+
 
 
      
       <TouchableOpacity style={styles.submitButton}>
-        <Text style={styles.submitButtonText}>Confirmar respuesta</Text>
+        <Text style={styles.submitButtonText}>Confirmar otra  respuesta</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -142,5 +122,58 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoyaltyScreenPage;
+export default LoyaltyScreenPage; */
 
+import React, { useState } from 'react';
+import { View, StyleSheet, Text, TouchableOpacity, SafeAreaView } from 'react-native';
+//import LoyaltyFeedbackScreen from '../organism/LoyaltyFeedbackScreen';
+import FeedbackIcons from '../organism/FeedbackIcons';
+
+const LoyaltyScreenPage: React.FC = () => {
+  const [rating, setRating] = useState(0);
+
+  const handleRating = (star: number) => {
+    setRating(star);
+  };
+
+  return (
+    <SafeAreaView style={styles.SafeAreaView}>
+      <View style={styles.header}>
+        <FeedbackIcons />
+      </View>
+
+      <FeedbackIcons />  {/* Aquí se agregan los iconos de feedback */}
+
+      <TouchableOpacity style={styles.submitButton}>
+        <Text style={styles.submitButtonText}>Confirmar otra respuesta</Text>
+      </TouchableOpacity>
+    </SafeAreaView>
+  );
+};
+
+const styles = StyleSheet.create({
+  SafeAreaView: {
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+  },
+  header: {
+    alignItems: 'center',
+    marginBottom: 10,
+  },
+  submitButton: {
+    backgroundColor: '#008000',
+    paddingVertical: 15,
+    paddingHorizontal: 40,
+    borderRadius: 10,
+    alignItems: 'center',
+    alignSelf: 'center',
+    marginTop: 20,
+  },
+  submitButtonText: {
+    color: 'white',
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+});
+
+export default LoyaltyScreenPage;

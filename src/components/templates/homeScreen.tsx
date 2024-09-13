@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView, Text } from 'react-native';
 import Header from '../molecules/Header';
-import MainSection from '../organism/MainSectionHomeScreen';
+import MainSection from '../FeedbackIcons/MainSectionHomeScreen';
 import NavigationBar from '../molecules/NavigationBar';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
