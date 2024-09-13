@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet, ScrollView, Text } from 'react-native';
 import Card from '../molecules/CardHomeScreen';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import DonationScreenCards from '../organism/DonationCardsScreen';
+import DonationScreenCards from '../organism/FeedbackIcons';
 
 const DonationScreenPage: React.FC = () => {
 
